@@ -1,0 +1,16 @@
+pandas==2.0.2
+numpy==1.24.3
+SQLAlchemy==2.0.15
+python-dotenv==1.0.1
+Flask==2.3.2
+Flask-Cors==4.0.1
+Flask-HTTPAuth==4.8.0
+Flask-Login==0.6.3
+Flask-Session==0.5.0
+Flask-SQLAlchemy==3.0.3
+fastapi==0.110.0
+pydantic==2.6.4
+pydantic_core==2.16.3
+pyodbc==4.0.39
+python-dotenv==1.0.1
+gunicorn==23.0.0

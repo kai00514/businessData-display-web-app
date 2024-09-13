@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.backend
+    volumes:
+      - /c/Users/QR/work/uriage-sokuhou_20240831/uriage-sokuhou-web-dev/backend
+    networks:
+      - mynetwork
+    env_file:
+      - ./backend/.env
+    environment:
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "5000:5000"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - mynetwork
+
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    volumes:
+      - /c/Users/QR/work/uriage-sokuhou_20240831/uriage-sokuhou-web-dev/pages
+    networks:
+      - mynetwork
+    environment:
+      - NEXT_PUBLIC_BACKEND_URL=http://localhost
+    ports:
+      - "3000:3000"
+
+networks:
+  mynetwork:
+    driver: bridge

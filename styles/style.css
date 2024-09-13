@@ -1,0 +1,7 @@
+/* Muiカレンダーの土日をdisabled設定にする */
+button[aria-colindex='1'],
+button[aria-colindex='7'] {
+	/* pointer-events: none;
+	cursor: default;
+	color: rgba(0, 0, 0, 0.38); */
+}
