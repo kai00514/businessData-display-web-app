@@ -69,7 +69,7 @@ const IndexPage = () => {
         //   withCredentials: true
         // });
         console.log('response = await axios.get("/")');
-        const response = await axios.get("/", {
+        const response = await axios.get("/api", {
           withCredentials: true
         });
         // console.log("response: ", response);
